@@ -1,0 +1,31 @@
+mixin boxes(data)
+  .card__boxes
+    each value in data 
+      .card__box 
+        p.card__title= value["num"]
+        p.card__subtitle= value["caption"]
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Frontend Mentor | Stats preview card component
+    link(rel="stylesheet", href="./style.css")
+  body 
+    .component 
+      .card 
+        .card__image-section
+          img.card__image-section--image(src="./images/image-header-mobile.jpg", alt="mobile")
+          .card__image-section--overlay
+        .card__title
+          h1.card__header 
+            | Get
+            span.card__header--span  insights
+            |  that help your business grow.
+          p.card__text Discover the benefits of data analytics and make better decisions regarding revenue, customer experience, and overall efficiency.
+          +boxes([{"num": "10k+", "caption": "companies"},
+          {"num": "314", "caption": "templates"}, 
+          {"num": "12M+", "caption": "queries"}
+          ])
